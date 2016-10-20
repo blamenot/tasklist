@@ -14,6 +14,7 @@ define(["backbone","jquery", "templates/taskTmpl", "templates/addTaskTmpl"], fun
                 title: this.$("#task-title-input").val(),
                 description: this.$("#task-description-input").val()
             });
+            this.el.reset();
         }
     });
     return AddTaskView;
