@@ -1,6 +1,7 @@
 define(["backbone","jquery", "templates/taskTmpl"], function (Backbone, $, taskTmpl) {
     var TaskView = Backbone.View.extend({
         tagName: "li",
+        className: "list-group-item",
         template: taskTmpl,
         render: function () {
             console.log("model render "+ this.model.toJSON());
@@ -9,7 +10,7 @@ define(["backbone","jquery", "templates/taskTmpl"], function (Backbone, $, taskT
         events: {
             "click h3": "editTask",
             "click p": "editTask",
-            "focusout": "saveTask",
+            "submit": "saveTask",
             "click button": "removeTask",
             "click input:checkbox": "completeTask"
         },

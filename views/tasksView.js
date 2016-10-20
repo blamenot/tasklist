@@ -1,6 +1,7 @@
 define(["backbone", "views/taskView"], function (Backbone, TaskView) {
     var TasksView = Backbone.View.extend({
         tagName: "ul",
+        className: "list-group",
         initialize: function () {
             var self = this;
             this.childViews=[];
@@ -19,6 +20,7 @@ define(["backbone", "views/taskView"], function (Backbone, TaskView) {
         },
         renderTask: function (task) {
             var taskView = new TaskView({model: task});
+            this.childViews.push(taskView);
             this.$el.append(taskView.el);
             taskView.render();
         },

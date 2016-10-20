@@ -3,11 +3,11 @@ define(['handlebars.runtime'], function(Handlebars) {
 return templates['taskTmpl.hbs'] = template({"1":function(container,depth0,helpers,partials,data) {
     var helper, alias1=depth0 != null ? depth0 : {}, alias2=helpers.helperMissing, alias3="function", alias4=container.escapeExpression;
 
-  return "    <form>\n        <input type=\"text\" id=\"task-title-edit\" name=\"title\" value=\""
+  return "    <form >\n        <div class=\"form-group\">\n            <input class=\"form-control\" type=\"text\" id=\"task-title-edit\" name=\"title\" value=\""
     + alias4(((helper = (helper = helpers.title || (depth0 != null ? depth0.title : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"title","hash":{},"data":data}) : helper)))
-    + "\" />\n        <input type=\"text\" id=\"task-description-edit\" name=\"description\" value=\""
+    + "\" />\n        </div>\n        <div class=\"form-group\">\n            <input id=\"task-description-edit\" name=\"description\" class=\"form-control\" value=\""
     + alias4(((helper = (helper = helpers.description || (depth0 != null ? depth0.description : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"description","hash":{},"data":data}) : helper)))
-    + "\" />\n        <input type=\"submit\" id=\"task-edit-submit\" value=\"submit\" />\n    </form>\n";
+    + "\" />\n        </div>\n        <div class=\"form-group\">\n            <input type=\"submit\" class=\"btn btn-primary\" id=\"task-edit-submit\" value=\"submit\" />\n        </div>\n    </form>\n";
 },"3":function(container,depth0,helpers,partials,data) {
     var helper, alias1=depth0 != null ? depth0 : {}, alias2=helpers.helperMissing, alias3="function", alias4=container.escapeExpression;
 
@@ -15,9 +15,9 @@ return templates['taskTmpl.hbs'] = template({"1":function(container,depth0,helpe
     + alias4(((helper = (helper = helpers.title || (depth0 != null ? depth0.title : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"title","hash":{},"data":data}) : helper)))
     + "</h3>\n    <p>"
     + alias4(((helper = (helper = helpers.description || (depth0 != null ? depth0.description : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"description","hash":{},"data":data}) : helper)))
-    + "</p>\n    <input type=\"checkbox\" "
+    + "</p>\n    <div class=\"clearfix\">\n        <div class=\"checkbox pull-left\">\n            <label><input type=\"checkbox\" "
     + alias4(((helper = (helper = helpers.completed || (depth0 != null ? depth0.completed : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"completed","hash":{},"data":data}) : helper)))
-    + " />\n    <button>Remove</button>\n";
+    + "  value=\"\">Completed?</label>\n        </div>\n        <button class=\"btn btn-sm btn-danger pull-right\">Remove</button>\n    </div>\n";
 },"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
     var stack1;
 

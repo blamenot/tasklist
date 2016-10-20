@@ -7,8 +7,12 @@ define(["backbone", "models/tasks", "views/appView", "views/taskView", "views/ta
     var tasks = new Tasks();
     var tasksData = localStorage.getItem("tasks");
     if(tasksData && tasksData.length>0)
-        tasks.add(JSON.parse(tasksData));
-
+        try {
+            tasks.add(JSON.parse(tasksData));
+        } catch (e) {
+            console.error(e);
+            alert("Could not retrieve saved tasks :(")
+        }
     var tasksView = new TasksView({collection: tasks});
     tasksView.listenTo(appView, "sort:tasks", function(order) {
         this.sort(order);
