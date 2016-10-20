@@ -10,10 +10,9 @@ define(["backbone", "models/tasks", "views/appView", "views/taskView", "views/ta
         tasks.add(JSON.parse(tasksData));
 
     var tasksView = new TasksView({collection: tasks});
-    /*tasksView.on("save:tasks", function (tasks_collection) {
-        localStorage.setItem("tasks",JSON.stringify(tasks_collection));
-    });*/
-
+    tasksView.listenTo(appView, "sort:tasks", function(order) {
+        this.sort(order);
+    });
     appView.$el.append(tasksView.el);
     tasksView.render();
 
