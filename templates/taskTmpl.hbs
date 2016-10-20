@@ -1,0 +1,12 @@
+{{#if edit}}
+    <form>
+        <input type="text" id="task-title-edit" name="title" value="{{title}}" />
+        <input type="text" id="task-description-edit" name="description" value="{{description}}" />
+        <input type="submit" id="task-edit-submit" value="submit" />
+    </form>
+{{else}}
+    <h3>{{title}}</h3>
+    <p>{{description}}</p>
+    <input type="checkbox" value="{{completed}}" />
+    <button>Remove</button>
+{{/if}}
