@@ -10,7 +10,8 @@ define(["backbone","jquery", "templates/taskTmpl"], function (Backbone, $, taskT
             "click h3": "editTask",
             "click p": "editTask",
             "focusout": "saveTask",
-            "click button": "removeTask"
+            "click button": "removeTask",
+            "click input:checkbox": "completeTask"
         },
         editTask: function (event) {
             this.model.set("edit", true);
@@ -21,6 +22,13 @@ define(["backbone","jquery", "templates/taskTmpl"], function (Backbone, $, taskT
             this.model.set("edit", false);
             this.model.set("title", this.$("#task-title-edit").val());
             this.model.set("description", this.$("#task-description-edit").val());
+            this.render();
+        },
+        completeTask: function (event) {
+            if(event.currentTarget.checked)
+                this.model.set("completed", "checked");
+            else
+                this.model.set("completed", "");
             this.render();
         },
         removeTask: function (event) {
